@@ -1,0 +1,20 @@
+<%- include('../partials/header') %>
+
+    <div class="row">
+        <% data.forEach(element => { %>
+            <div class="card mx-4" style="width: 21rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Title: <%= element.title %></h5>
+                    <p class="card-text">Text: <%= element.text %></p>
+                    <p>Confidence: <%= element.confidence %></p>
+                    <a href="#" class="btn btn-primary">Show</a>
+                    <a href="#" class="btn btn-secondary">Edit</a>
+                    <a href="#" class="btn btn-success">Update</a>
+                        <form class="form-inline" action="/api/blogs/<%= element._id %>?_method=DELETE", method="post"> 
+                            <button class="btn btn-danger">Delete</button>
+                        </form>
+                </div>
+                </div>
+            <% }) %>
+    </div>
+    
