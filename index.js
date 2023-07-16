@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
-// const blogs = require('./model/AllBlogsModel')
+const blogs = require('./model/AllBlogsModel')
 const {all_blogs, post_blog, get_one,update_one,delete_one} = require('./controller/blogs')
 const {login} = require('./controller/login')
 const {signup} = require('./controller/signup')
@@ -57,6 +57,12 @@ app.post('/api/blogs',auth,post_blog)
 
 app.get('/api/blogs/:id',auth,get_one)
 
+app.get('/api/blogs/:id/edit', async(req,res)=>
+{
+    const id = req.params['id']
+    const data = await blogs.findOne({_id : id})
+    res.render('edit',{data})
+})
 app.put('/api/blogs/:id',auth,update_one)
 
 app.delete('/api/blogs/:id',auth,delete_one)

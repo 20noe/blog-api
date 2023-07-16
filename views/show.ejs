@@ -1,0 +1,12 @@
+<%- include('../partials/header') %>
+<div class="card mx-4" style="width: 21rem;">
+    <div class="card-body">
+        <h5 class="card-title">Title: <%= data.title %></h5>
+        <p class="card-text">Text: <%= data.text %></p>
+        <p>Confidence: <%= data.confidence %></p>
+        <a href="/api/blogs/<%= data._id %>/edit" class="btn btn-secondary">Edit</a>
+            <form class="form-inline" action="/api/blogs/<%= data._id %>?_method=DELETE", method="post"> 
+                <button class="btn btn-danger">Delete</button>
+            </form>
+    </div>
+    </div>

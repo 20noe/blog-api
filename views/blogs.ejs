@@ -7,12 +7,11 @@
                     <h5 class="card-title">Title: <%= element.title %></h5>
                     <p class="card-text">Text: <%= element.text %></p>
                     <p>Confidence: <%= element.confidence %></p>
-                    <a href="#" class="btn btn-primary">Show</a>
-                    <a href="#" class="btn btn-secondary">Edit</a>
-                    <a href="#" class="btn btn-success">Update</a>
+                    <a href="/api/blogs/<%= element._id %>" class="btn btn-primary">Show</a>
+                    <!-- <a href="/api/blogs/<%= element._id %>/edit" class="btn btn-secondary">Edit</a>
                         <form class="form-inline" action="/api/blogs/<%= element._id %>?_method=DELETE", method="post"> 
                             <button class="btn btn-danger">Delete</button>
-                        </form>
+                        </form> -->
                 </div>
                 </div>
             <% }) %>

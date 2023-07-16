@@ -26,7 +26,7 @@ const get_one = async(req,res)=>
         {
             res.status(404).send('No record found')
         }
-        res.send(data)
+        res.render('show',{data})
     }
     catch(e)
     {
@@ -44,7 +44,7 @@ const update_one = async(req,res)=>
             title, text, confidence
         }).then((data)=>
         {
-            res.send("Updated Successfully")
+            res.redirect('/api/blogs')
         }).catch((err)=>
         {
             res.send(err)
